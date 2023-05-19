@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  align-items: center;
+}
+p{
+background-color: grey;
+}
+
+form{
+  border: 10px dotted rgb(62, 55, 81);
+}
+
+input[type=submit] {
+  padding:5px 15px; 
+  background:#ccc; 
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+}
