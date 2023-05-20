@@ -12,54 +12,54 @@
 //         .then(person => response.json(person))
 //         .catch(err => response.json(err));
 // }
-const Person = require('../models/person.model');
+const Product = require('../models/product.model');
 
-module.exports.findAllPersons = (req, res) => {
-    Person.find()
-        .then((allDaPersons) => {
-            res.json({ persons: allDaPersons })
+module.exports.getAllProduct = (request, response) => {
+    Product.find({})
+        .then(products => {
+            console.log(products); //console logs are optional, but they are highly recommended for troubleshooting!
+            response.json(products);
+        })
+        .catch(err => {
+            console.log(err)
+            response.json(err)
+        })
+}
+
+module.exports.getProduct = (request, response) => {
+    Product.findOne({_id:request.params.id})
+        .then(product => response.json(product))
+        .catch(err => response.json(err));
+}
+
+
+
+module.exports.createNewProduct = (req, res) => {
+    Product.create(req.body)
+        .then(newlyCreatedProduct => {
+            res.json({ product: newlyCreatedProduct })
         })
         .catch((err) => {
             res.json({ message: 'Something went wrong', error: err })
         });
 }
 
-module.exports.findOneSinglePerson = (req, res) => {
-    Person.findOne({ _id: req.params.id })
-        .then(oneSinglePerson => {
-            res.json({ person: oneSinglePerson })
-        })
-        .catch((err) => {
-            res.json({ message: 'Something went wrong', error: err })
-        });
-}
-
-module.exports.createNewPerson = (req, res) => {
-    Person.create(req.body)
-        .then(newlyCreatedPerson => {
-            res.json({ person: newlyCreatedPerson })
-        })
-        .catch((err) => {
-            res.json({ message: 'Something went wrong', error: err })
-        });
-}
-
-module.exports.updateExistingPerson = (req, res) => {
-    Person.findOneAndUpdate(
+module.exports.updateExistingProduct = (req, res) => {
+    Product.findOneAndUpdate(
         { _id: req.params.id },
         req.body,
         { new: true, runValidators: true }
     )
-        .then(updatedPerson => {
-            res.json({ person: updatedPerson })
+        .then(updatedProduct => {
+            res.json({ product: updatedProduct })
         })
         .catch((err) => {
             res.json({ message: 'Something went wrong', error: err })
         });
 }
 
-module.exports.deleteAnExistingPerson = (req, res) => {
-    Person.deleteOne({ _id: req.params.id })
+module.exports.deleteAnExistingProduct = (req, res) => {
+    Product.deleteOne({ _id: req.params.id })
         .then(result => {
             res.json({ result: result })
         })

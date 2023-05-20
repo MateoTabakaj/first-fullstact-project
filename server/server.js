@@ -10,10 +10,10 @@ require('./config/mongoose.config');
     
 app.use(express.json(), express.urlencoded({ extended: true }));
     
-const AllMyPersonRoutes=require("./routes/person.routes")
-AllMyPersonRoutes(app);
+const AllMyProductRoutes=require("./routes/product.routes")
+AllMyProductRoutes(app);
      /* This is new */
-require('./routes/person.routes')(app);
+require('./routes/product.routes')(app);
 app.listen(8000, () => {
     console.log("Listening at Port 8000")
 })
