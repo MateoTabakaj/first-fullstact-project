@@ -8,6 +8,7 @@ const Main = (props) => {
 
     return (
         <div className='Main'>
+            <h2>Product Manager</h2>
             <PersonForm product={product} setProduct={setProduct} />
             <h2>Products List</h2>
             <PersonList product={product} setProduct={setProduct} />
