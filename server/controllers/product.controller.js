@@ -1,17 +1,4 @@
-// const Person = require('../models/person.model');    /* this is new */
-// module.exports.index = (request, response) => {
-//     response.json({
-//         message: "Hello World"
-//     });
-// }
-//           /* The method below is new */
-// module.exports.createPerson = (request, response) => {
-//     // Mongoose's "create" method is run using our Person model to add a new person to our db's person collection.
-//     // request.body will contain something like {firstName: "Billy", lastName: "Washington"} from the client
-//     Person.create(request.body) //This will use whatever the body of the client's request sends over
-//         .then(person => response.json(person))
-//         .catch(err => response.json(err));
-// }
+
 const Product = require('../models/product.model');
 
 module.exports.getAllProduct = (request, response) => {
@@ -44,7 +31,7 @@ module.exports.createNewProduct = (req, res) => {
         });
 }
 
-module.exports.updateExistingProduct = (req, res) => {
+module.exports.updateProduct = (req, res) => {
     Product.findOneAndUpdate(
         { _id: req.params.id },
         req.body,
@@ -58,7 +45,7 @@ module.exports.updateExistingProduct = (req, res) => {
         });
 }
 
-module.exports.deleteAnExistingProduct = (req, res) => {
+module.exports.deleteProduct = (req, res) => {
     Product.deleteOne({ _id: req.params.id })
         .then(result => {
             res.json({ result: result })

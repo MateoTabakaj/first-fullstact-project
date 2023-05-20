@@ -36,7 +36,7 @@ const ProductForm = (props) => {
             </p>
             <p>
                 <label>Price</label><br />
-                <input type="number" onChange={(e) => setPrice(e.target.value)} />
+                <input type="number" step={5} onChange={(e) => setPrice(e.target.value)} />
             </p>
             <p>
                 <label>Description</label><br />

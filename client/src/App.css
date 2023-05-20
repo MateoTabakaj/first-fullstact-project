@@ -31,13 +31,18 @@ label{
   font-size: larger;
 
 }
-input[type=submit] {
+button,input[type=submit] {
   padding:5px 15px; 
+  margin-left: 5px;
   background:#91b4c5; 
   border:0 none;
   cursor:pointer;
   -webkit-border-radius: 5px;
-  border-radius: 5px !important; 
+  border-radius: 5px !important;
+  border-radius: 25px;
+  box-shadow: 3px 5px 2px ;
+  font-size: 15PX;
+  padding:0 15px ; 
 }
 
 .List{
