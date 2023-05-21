@@ -32,6 +32,7 @@ label{
 
 }
 button,input[type=submit] {
+  box-shadow: 3px 5px 2px ;
   padding:5px 15px; 
   margin-left: 5px;
   background:#91b4c5; 
@@ -63,7 +64,6 @@ button,input[type=submit] {
 
 .List p{
 font-size: larger;
-text-transform: capitalize;
 }
 
 .List :link{
